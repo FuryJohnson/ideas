@@ -9,9 +9,7 @@
 
             <Tabs />
             <div class="ideas">
-                <IdeaItem isActive="true" />
-                <IdeaItem />
-                <IdeaItem />
+                <IdeaItem v-for="item in items" :key="item" :item="item" />
             </div>
         </div>
     </div>
@@ -22,6 +20,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import AddForm from '@/components/AddForm.vue'; // @ is an alias to /src
 import Tabs from '@/components/Tabs.vue'; // @ is an alias to /src
 import IdeaItem from '@/components/IdeaItem.vue'; // @ is an alias to /src
+import { db } from '../db';
 
 @Component({
     components: {
@@ -30,5 +29,15 @@ import IdeaItem from '@/components/IdeaItem.vue'; // @ is an alias to /src
         IdeaItem,
     },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+    items = [];
+
+    async mounted() {
+        const doc = db.collection('ideas');
+        doc.onSnapshot(docSnapsot => {
+            const docs = docSnapsot.docs.map(doc => doc.data());
+            this.items = docs;
+        });
+    }
+}
 </script>

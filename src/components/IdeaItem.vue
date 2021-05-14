@@ -1,7 +1,7 @@
 <template>
     <div class="ideas__item" v-bind:class="{ 'ideas__item--active': isActive }">
         <div class="ideas__item-details">
-            <h3 class="ideas__item-title">Рассказать про Covalent</h3>
+            <h3 class="ideas__item-title">{{ item.title }}</h3>
             <p class="ideas__item-text">
                 Хотелось бы более детальней узнать о том, как работает Covalent
                 и чем он лучше
@@ -66,6 +66,7 @@ export default {
     name: 'IdeaItem',
     props: {
         isActive: Boolean,
+        item: Object,
     },
 };
 </script>

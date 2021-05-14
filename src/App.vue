@@ -54,6 +54,7 @@ body {
     padding: 25px;
     margin-bottom: 30px;
     margin-top: 20px;
+    cursor: text;
 
     &__footer {
         display: flex;
@@ -77,6 +78,12 @@ body {
 
             &:active {
                 background-color: darken(#2c74ff, 5%);
+            }
+
+            &:disabled {
+                background-color: #d1d7e2;
+                box-shadow: none;
+                cursor: not-allowed;
             }
         }
 

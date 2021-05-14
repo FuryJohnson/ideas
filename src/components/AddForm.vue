@@ -1,15 +1,20 @@
 <template>
-    <div class="add-form">
-        <div class="add-form__title"></div>
-        <input
-            autocomplete="off"
-            placeholder="Заголовок темы"
-            type="text"
-            name="title"
-            id="title"
-        />
+    <div class="add-form" v-on:click="focusTextarea()">
+        <div class="add-form__title">
+            <input
+                ref="titleRef"
+                v-model="title"
+                autocomplete="off"
+                placeholder="Заголовок темы"
+                type="text"
+                name="title"
+                id="title"
+            />
+        </div>
         <div class="add-form__text">
             <textarea
+                ref="textRef"
+                v-model="text"
                 placeholder="Опишите подробнее, какую тему вы хотите предложить для следующего видео"
                 name="text"
                 id="text"
@@ -17,7 +22,11 @@
             ></textarea>
         </div>
         <div class="add-form__footer">
-            <div class="add-form__footer-clear">
+            <div
+                v-if="title && text"
+                class="add-form__footer-clear"
+                v-on:click="clearData()"
+            >
                 <svg
                     width="14"
                     height="14"
@@ -31,7 +40,45 @@
                     />
                 </svg>
             </div>
-            <button class="add-form__footer-button">Отправить</button>
+            <button
+                ref="buttonRef"
+                :disabled="!title || !text"
+                class="add-form__footer-button"
+            >
+                Отправить
+            </button>
         </div>
     </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class AddForm extends Vue {
+    // @Ref('textRef') readonly textarea!: HTMLTextAreaElement;
+    $refs!: {
+        textRef: HTMLTextAreaElement;
+        titleRef: HTMLInputElement;
+        buttonRef: HTMLButtonElement;
+    };
+
+    title = '';
+
+    text = '';
+
+    clearData() {
+        this.title = '';
+        this.text = '';
+    }
+    focusTextarea(event: MouseEvent) {
+        const path = event.composedPath();
+        if (
+            !path.includes(this.$refs.titleRef) &&
+            !path.includes(this.$refs.buttonRef)
+        ) {
+            this.$refs.textRef.focus();
+        }
+    }
+}
+</script>
