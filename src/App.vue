@@ -9,7 +9,7 @@ body {
     font-family: 'Titillium Web', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f6f7f8;
+    background-image: url(./image/Banner.png);
 }
 
 * {
@@ -25,6 +25,9 @@ body {
 .container {
     width: 640px;
     margin: 50px auto;
+    .main-title {
+        color: white;
+    }
 }
 
 .noselect {
@@ -68,16 +71,16 @@ body {
             font-weight: 500;
             text-align: center;
             color: #ffffff;
-            background-color: #2c74ff;
+            background-color: #FF4C8B;
             border-radius: 6px;
             cursor: pointer;
 
             &:hover {
-                background-color: lighten(#2c74ff, 5%);
+                background-color: lighten(#FF4C8B, 5%);
             }
 
             &:active {
-                background-color: darken(#2c74ff, 5%);
+                background-color: darken(#FF4C8B, 5%);
             }
 
             &:disabled {
@@ -134,19 +137,22 @@ body {
 .tabs {
     display: flex;
     margin-bottom: 30px;
+    margin-left: 15%;
 
     li {
         padding: 15px 30px;
         border-radius: 6px;
         margin-right: 15px;
         cursor: pointer;
+        background-color: #e7ebef;
 
         &:hover {
             background-color: lighten(#e7ebef, 3%);
         }
 
         &.active {
-            background-color: #e7ebef;
+            background-color: #FF4C8B;
+            
         }
     }
 }
@@ -164,9 +170,9 @@ body {
         padding: 25px 30px;
 
         &--active {
-            border-color: #ffa500;
+            border-color: #FF4C8B;
             h3 {
-                color: #ffa500;
+                color: #FF4C8B;
             }
 
             #{$self}-like {
@@ -176,12 +182,12 @@ body {
 
                     svg {
                         path {
-                            fill: #ffa500;
+                            fill: #FF4C8B;
                         }
                     }
                 }
                 &-count {
-                    color: #ffa500;
+                    color: #FF4C8B;
                 }
 
                 &:hover {
@@ -189,7 +195,7 @@ body {
                         background-color: #fff6e4;
                         svg {
                             path {
-                                fill: #ffa500;
+                                fill: #FF4C8B;
                             }
                         }
                     }
@@ -201,7 +207,7 @@ body {
                     background-color: #fff3dd;
                     svg {
                         path {
-                            fill: #ffa500;
+                            fill: #FF4C8B;
                         }
                     }
                 }

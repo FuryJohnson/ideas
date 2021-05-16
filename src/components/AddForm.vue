@@ -1,4 +1,5 @@
 <template>
+<form @submit="addLocation(name, image)">
     <div class="add-form" v-on:click="focusTextarea()">
         <div class="add-form__title">
             <input
@@ -41,6 +42,7 @@
                 </svg>
             </div>
             <button
+                type="submit"
                 ref="buttonRef"
                 :disabled="!title || !text"
                 class="add-form__footer-button"
@@ -49,10 +51,12 @@
             </button>
         </div>
     </div>
+</form>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { db } from '../db';
 
 @Component
 export default class AddForm extends Vue {
@@ -70,7 +74,13 @@ export default class AddForm extends Vue {
     clearData() {
         this.title = '';
         this.text = '';
-    }
+    };
+
+    addLocation (title: string, text: string) {      // <-- новый метод
+     db.collection('ideas').add({ title, text })
+     console.log(this.addLocation)
+    };
+
     focusTextarea(event: MouseEvent) {
         const path = event.composedPath();
         if (
@@ -80,5 +90,6 @@ export default class AddForm extends Vue {
             this.$refs.textRef.focus();
         }
     }
+    
 }
 </script>

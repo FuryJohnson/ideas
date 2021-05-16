@@ -11,6 +11,8 @@
             <div class="ideas">
                 <IdeaItem v-for="item in items" :key="item" :item="item" />
             </div>
+            <!-- <IdeaItem :isActive="true" />
+            <IdeaItem /> -->
         </div>
     </div>
 </template>
@@ -36,7 +38,7 @@ export default class Home extends Vue {
         const doc = db.collection('ideas');
         doc.onSnapshot(docSnapsot => {
             const docs = docSnapsot.docs.map(doc => doc.data());
-            this.items = docs;
+            this.items = docs;         
         });
     }
 }
