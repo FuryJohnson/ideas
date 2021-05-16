@@ -3,7 +3,7 @@
         <img alt="Vue logo" src="../assets/logo.png" />
         <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
         <div class="container">
-            <h3 class="main-title">Хотите предложить тему?</h3>
+            <h3 class="main-title">Want to suggest a topic?</h3>
 
             <AddForm />
 
@@ -38,8 +38,14 @@ export default class Home extends Vue {
         const doc = db.collection('ideas');
         doc.onSnapshot(docSnapsot => {
             const docs = docSnapsot.docs.map(doc => doc.data());
-            this.items = docs;         
+            this.items = docs;
         });
+    }
+    addLocation(title: string, text: string) {
+        // <-- новый метод
+        db.collection('ideas').add({ title, text });
+        console.log(title, text);
+        debugger;
     }
 }
 </script>

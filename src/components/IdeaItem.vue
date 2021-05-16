@@ -21,7 +21,7 @@
                                 fill="#979797"
                             />
                         </svg>
-                        Гость
+                        Guest User
                     </li>
                     <li>
                         <svg

@@ -71,16 +71,16 @@ body {
             font-weight: 500;
             text-align: center;
             color: #ffffff;
-            background-color: #FF4C8B;
+            background-color: #ff4c8b;
             border-radius: 6px;
             cursor: pointer;
 
             &:hover {
-                background-color: lighten(#FF4C8B, 5%);
+                background-color: lighten(#ff4c8b, 5%);
             }
 
             &:active {
-                background-color: darken(#FF4C8B, 5%);
+                background-color: darken(#ff4c8b, 5%);
             }
 
             &:disabled {
@@ -137,7 +137,7 @@ body {
 .tabs {
     display: flex;
     margin-bottom: 30px;
-    margin-left: 15%;
+    margin-left: 150px;
 
     li {
         padding: 15px 30px;
@@ -151,8 +151,7 @@ body {
         }
 
         &.active {
-            background-color: #FF4C8B;
-            
+            background-color: #ff4c8b;
         }
     }
 }
@@ -170,9 +169,9 @@ body {
         padding: 25px 30px;
 
         &--active {
-            border-color: #FF4C8B;
+            border-color: #ff4c8b;
             h3 {
-                color: #FF4C8B;
+                color: #ff4c8b;
             }
 
             #{$self}-like {
@@ -182,12 +181,12 @@ body {
 
                     svg {
                         path {
-                            fill: #FF4C8B;
+                            fill: #ff4c8b;
                         }
                     }
                 }
                 &-count {
-                    color: #FF4C8B;
+                    color: #ff4c8b;
                 }
 
                 &:hover {
@@ -195,7 +194,7 @@ body {
                         background-color: #fff6e4;
                         svg {
                             path {
-                                fill: #FF4C8B;
+                                fill: #ff4c8b;
                             }
                         }
                     }
@@ -207,7 +206,7 @@ body {
                     background-color: #fff3dd;
                     svg {
                         path {
-                            fill: #FF4C8B;
+                            fill: #ff4c8b;
                         }
                     }
                 }

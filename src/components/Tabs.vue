@@ -1,7 +1,7 @@
 <template>
     <ul class="tabs">
-        <li class="active">Последние</li>
-        <li>Выполненные</li>
-        <li>Закрыто</li>
+        <li class="active">Latest</li>
+        <li>Done</li>
+        <li>Closed</li>
     </ul>
 </template>
