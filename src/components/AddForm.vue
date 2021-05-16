@@ -76,11 +76,11 @@ export default class AddForm extends Vue {
         this.text = '';
     }
 
-    addLocation(title: string, text: string) {
+    addLocation(title: string, text: string, evt: any) {
         // <-- новый метод
         db.collection('ideas').add({ title, text });
         console.log(this.addLocation);
-        event.preventDefault();
+        evt.preventDefault();
     }
 
     focusTextarea(event: MouseEvent) {
