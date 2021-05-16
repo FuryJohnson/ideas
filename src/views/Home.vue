@@ -32,7 +32,8 @@ import { db } from '../db';
     },
 })
 export default class Home extends Vue {
-    items = new Array();
+    /* eslint-disable */
+    items = Array();
 
     async mounted() {
         const doc = db.collection('ideas');
@@ -41,6 +42,7 @@ export default class Home extends Vue {
             this.items = docs;
         });
     }
+    /* eslint-enable */
     addLocation(title: string, text: string) {
         // <-- новый метод
         db.collection('ideas').add({ title, text });
