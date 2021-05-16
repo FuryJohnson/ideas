@@ -32,7 +32,7 @@ import { db } from '../db';
     },
 })
 export default class Home extends Vue {
-    items = Array();
+    items = new Array();
 
     async mounted() {
         const doc = db.collection('ideas');
